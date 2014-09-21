@@ -25,8 +25,8 @@
     function makeList(list, id){    	
     	$.each(list,function(index,data){
     		if(index!== 0 && index!== 1 && data !== 'index.html'){
-    			var li = $('<li></li>'),
-    			a = $('<a href = "/../projects/'+data+'">'+data+'</a>');    			    			
+    			var li = $('<li class = "folder"></li>'),
+    			a = $('<a href = "/../projects/'+data+'"><img src = "img/icon.png"/><span>'+data+'</span></a>');    			    			
     			id.append(li.append(a));
     		}    		
     	});
