@@ -22,7 +22,6 @@ date_default_timezone_set('America/Port_of_Spain');
 
 require 'Slim/Slim.php';
 include 'fileHandler.php';
-include 'dbHandler.php';
 
 \Slim\Slim::registerAutoloader();
 
@@ -69,7 +68,6 @@ $app->run();
 
 function getFileList(){
        
-    $file = FileHandler::getInstance();
-    $file->readFiles();
-    echo json_encode($file->findFile());    
+    $file = FileHandler::getInstance();    
+    echo json_encode($file->readFiles());    
 }

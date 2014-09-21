@@ -31,33 +31,29 @@ class FileHandler{
     }
 
 
-    public function findFile(){
-    	$ar = $this->readFiles();
-
-    	if($ar[0] === ".."){
-	    	return array();
-    	}else{
-    		return $ar;	
-    	}
-    	
-    }
-
     public function readFiles(){
     	$results_array = array();
 
 		if (is_dir($this->path))
 		{
-	        if ($handle = opendir($this->path))
-	        {
+			try {
+				if ($handle = opendir($this->path))
+		        {
 	                //Notice the parentheses I added:
 	                while(($file = readdir($handle)) !== FALSE)
 	                {
-	                        $results_array[] = $file;
+	                    $results_array[] = $file;
 	                }
 	                closedir($handle);
-	        }
-		}
-		return $results_array;
+	                return $results_array;
+		        }
+			} catch (Exception $e) {
+				echo $e;
+			}	        
+		}else{
+			return null;
+		}	
+
     }
 
 

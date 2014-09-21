@@ -24,7 +24,7 @@
 
     function makeList(list, id){    	
     	$.each(list,function(index,data){
-    		if(index!== 0 && index!== 1){
+    		if(index!== 0 && index!== 1 && data !== 'index.html'){
     			var li = $('<li></li>'),
     			a = $('<a href = "/../projects/'+data+'">'+data+'</a>');    			    			
     			id.append(li.append(a));
